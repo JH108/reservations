@@ -10,7 +10,9 @@ data class Reservation(
     @Contextual
     val id: UUID,
     val name: String,
+    val email: String,
     val location: ReservationLocation,
     @Contextual
     val time: OffsetDateTime,
+    val partySize: Int
 )

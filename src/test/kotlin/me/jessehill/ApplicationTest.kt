@@ -1,6 +1,5 @@
 package me.jessehill
 
-import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.client.request.*
@@ -8,7 +7,6 @@ import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.testing.*
 import io.ktor.utils.io.charsets.*
-import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.buildJsonObject
 import kotlinx.serialization.json.encodeToJsonElement
 import kotlinx.serialization.json.put
@@ -36,7 +34,6 @@ class ApplicationTest {
         }
     }
 
-
     @Test
     fun `test that a reservation can be made`() = testApplication {
         application {
@@ -47,13 +44,15 @@ class ApplicationTest {
         val reservation = Reservation(
             id = UUID.randomUUID(),
             name = "Jesse Hill",
+            email = "acme@what.io",
             location = ReservationLocation(
                 id = UUID.randomUUID(),
                 name = "The Coffee Shop",
                 address = "1234 Elm St. Springfield, IL 62701",
                 type = ReservationType.RESTAURANT
             ),
-            time = OffsetDateTime.now().plusDays(1)
+            time = OffsetDateTime.now().plusDays(1),
+            partySize = 4
         )
 
         client.config {
