@@ -1,4 +1,4 @@
-package me.jessehill.plugins
+package me.jessehill.database
 
 import org.jetbrains.exposed.sql.transactions.transaction
 import org.jetbrains.exposed.sql.transactions.experimental.newSuspendedTransaction

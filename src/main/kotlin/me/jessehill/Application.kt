@@ -3,6 +3,7 @@ package me.jessehill
 import io.ktor.server.application.*
 import io.ktor.server.cio.*
 import io.ktor.server.engine.*
+import me.jessehill.database.configureDatabases
 import me.jessehill.plugins.*
 
 fun main() {
@@ -14,6 +15,6 @@ fun Application.module() {
     configureTemplating()
     configureSerialization()
     configureMonitoring()
-    configureDatabases()
+//    configureDatabases()
     configureRouting()
 }

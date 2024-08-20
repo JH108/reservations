@@ -1,4 +1,4 @@
-package me.jessehill.plugins
+package me.jessehill.database
 
 import io.github.flaxoos.ktor.server.plugins.kafka.Kafka
 import io.github.flaxoos.ktor.server.plugins.kafka.MessageTimestampType

@@ -2,10 +2,11 @@ package me.jessehill.models
 
 import kotlinx.serialization.Serializable
 
-interface Contact {
-    val method: ContactMethod
-    val content: String
-    fun isValid(): Boolean
+@Serializable
+sealed class Contact {
+    abstract val method: ContactMethod
+    abstract val content: String
+    abstract fun isValid(): Boolean
 }
 
 enum class ContactMethod {
@@ -16,7 +17,7 @@ enum class ContactMethod {
 @Serializable
 data class EmailContact(
     override val content: String
-) : Contact {
+) : Contact() {
     override val method = ContactMethod.EMAIL
 
     override fun isValid(): Boolean {
@@ -27,7 +28,7 @@ data class EmailContact(
 @Serializable
 data class PhoneContact(
     override val content: String
-) : Contact {
+) : Contact() {
     override val method = ContactMethod.PHONE
 
     override fun isValid(): Boolean {
